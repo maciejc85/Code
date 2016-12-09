@@ -1,0 +1,61 @@
+using System;
+using System.Collections;
+
+public class Program
+{
+	
+	//1. implement a function to check if a linked list is a palendrome?
+	// 1 - 2 - 3 - 4 - 3 - 2 - 1
+	public void Main()
+	{
+		bool palindrome = true;
+		
+		//initialize the linked list
+		Node head = new Node("1");
+		head.next = new Node("2");		
+		Node next = head.next;
+		next.next = new Node("3");
+		next = next.next;
+		next.next = new Node("3");
+		next = next.next;
+		next.next = new Node("2");
+		next = next.next;
+		next.next = new Node("1");
+		next = next.next;
+		
+		Stack stack = new Stack();
+		
+		
+		Node fast = head;
+		Node slow = head;
+		
+		while(fast != null && fast.next != null){		
+			stack.Push(slow);			
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+		
+		if(fast != null)
+			slow = slow.next;
+		
+		while (slow != null){
+			Node popped = (Node)stack.Pop();	
+			if (popped.data != slow.data){
+				palindrome = false;
+			}
+			slow = slow.next;
+		}
+		
+		Console.Write(palindrome.ToString());
+	}
+}
+
+public class Node
+{
+	public string data;
+	public Node next;
+	
+	public Node(string data){
+		this.data = data;
+	}
+}

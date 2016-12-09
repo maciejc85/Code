@@ -1,0 +1,23 @@
+using System;
+					
+
+bool isUnique(string str){
+	
+	bool[] charset = new bool[128];	//array of bool for ASCII 128-character alphabet
+	for (int i = 0; i < str.Length; i++){
+		int val = str[i];
+		if(charset[val]){ //was the character already used
+			return false;
+		}
+		else{
+			charset[val] = true;
+		}			
+	}
+	return true;
+}
+	
+string characters = "asdfgh";
+
+bool unique = isUnique(characters);
+
+Console.Write(unique);

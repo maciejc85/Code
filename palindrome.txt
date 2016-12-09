@@ -1,0 +1,83 @@
+using System;
+
+public class Program
+{
+	/*
+	public string x = "boyuk asdas asdaasda   ";
+	public string y = "%20";
+	public bool replaceSpace(string x)
+	{
+		return true;
+	}
+
+	public string Sort(string x)
+	{
+		char[] y = x.ToCharArray();
+		Array.Sort(y);
+		return new String(y);
+	}
+	*/
+	bool isPermutationPalindrome(string x)
+	{
+		double[] table = buildCharFrequencyTable(x);
+		return checkMaxOdd(table);
+	}
+
+	public bool checkMaxOdd(double[] table)
+	{
+		foreach (double c in table)
+		{
+			bool foundOdd = false;
+			
+			if (c != 0 && c != -1)
+			{
+				if (c != 2)
+				{
+					if (foundOdd)
+					{
+						return false;
+					}
+					foundOdd = true;
+				}
+			}
+		}
+
+		return true;
+	}
+
+	//is the char between a and z? what is the number
+	public double getCharNumber(char x)
+	{
+		double z = Convert.ToUInt16('z');
+		double a = Convert.ToUInt16('a');
+		double y = Convert.ToUInt16(x);
+		if (a <= y && y <= z)
+		{
+			return y - a;
+		}
+
+		return -1;
+	}
+
+	//build table a to z
+	public double[] buildCharFrequencyTable(string x)
+	{
+		double[] table = new double[Convert.ToUInt16('z') - Convert.ToUInt16('a') + 1];
+		foreach (char c in x.ToCharArray())
+		{
+			double y = getCharNumber(c);
+			if (y != -1)
+			{
+				table[Int32.Parse(y.ToString())] = table[Int32.Parse(y.ToString())] + 1;
+			}
+		}
+
+		return table;
+	}
+
+	public void Main()
+	{
+		bool result = isPermutationPalindrome("boo");
+		Console.Write(result.ToString());
+	}
+}

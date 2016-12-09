@@ -1,0 +1,17 @@
+<html>
+<head>
+</head>
+<body>
+
+<script>
+ window.onload = addlistensers;
+
+ function addlistensers(){
+     document.getElementById('mybtn').addEventListener("click", () => { alert(this.id + " was clicked"); console.log(this);}, false);
+ }
+</script>
+
+<button id="mybtn">Button></button>
+
+</body>
+</html>
