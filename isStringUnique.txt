@@ -20,4 +20,4 @@ string characters = "asdfgh";
 
 bool unique = isUnique(characters);
 
-Console.Write(unique);
+Console.Write(unique); 

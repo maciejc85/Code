@@ -26,6 +26,7 @@ public class Program
 		Stack stack = new Stack();
 		
 		
+		
 		Node fast = head;
 		Node slow = head;
 		

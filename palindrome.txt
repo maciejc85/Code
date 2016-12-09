@@ -22,6 +22,7 @@ public class Program
 		double[] table = buildCharFrequencyTable(x);
 		return checkMaxOdd(table);
 	}
+	
 
 	public bool checkMaxOdd(double[] table)
 	{
