@@ -1,0 +1,28 @@
+//Check Permutation - Given two strings, write a method to decide if one is a permutation of the other
+
+//Solution 1 - sort strings
+					
+using System;
+
+String sort(String s){	
+	char[] content = s.ToCharArray();
+	Array.Sort(content);
+	return new String(content);	
+}
+
+Boolean permutation(String s, String t){	
+
+	if(s.Length != t.Length){ //if two strings are unequal length they can not be permutations of one another
+		return false;
+	}
+	return sort(s).Equals(sort(t));
+}
+	
+string string1 = "abc";
+string string2 = "cba";
+
+Console.Write(permutation(string1,string2)); 
+
+
+	
+
