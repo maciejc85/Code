@@ -1,7 +1,7 @@
 //String Compression - implement a method to perform basic string compression using count of repeated characters.
 //For example, the string aabcccccaaa would become a2b1c5a3. If the compressed string would not become smaller than the original
 //string, the method should return the original string. Assumption is that the string can only have uppercase and lowercase letters (a-z)
-
+ 
 
 
 using System;
