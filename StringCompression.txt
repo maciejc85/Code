@@ -1,0 +1,42 @@
+//String Compression - implement a method to perform basic string compression using count of repeated characters.
+//For example, the string aabcccccaaa would become a2b1c5a3. If the compressed string would not become smaller than the original
+//string, the method should return the original string. Assumption is that the string can only have uppercase and lowercase letters (a-z)
+
+
+
+using System;
+using System.Text;
+					
+public class Program
+{		
+	public void Main()
+	{
+		string uncompressed = "aabcccccaaa";
+		string compressed = "a2b1c5a3";
+		
+		
+		Console.Write(compress(uncompressed).Equals(compressed));
+	}
+	
+	String compress(String s){
+		
+		StringBuilder compressedString = new StringBuilder();
+	
+		int count = 0;
+		
+		for (int i = 0; i < s.Length; i++){
+			
+					
+			if (i < s.Length - 1 && s[i] == s[i + 1]){ //if the 
+				count++;
+			}
+			else{
+				count++;
+				compressedString.Append(s[i]).Append(count);
+				count = 0;
+			}
+			
+		}
+		return compressedString.ToString();
+	}
+}
