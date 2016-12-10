@@ -1,7 +1,7 @@
 //String Compression - implement a method to perform basic string compression using count of repeated characters.
 //For example, the string aabcccccaaa would become a2b1c5a3. If the compressed string would not become smaller than the original
 //string, the method should return the original string. Assumption is that the string can only have uppercase and lowercase letters (a-z)
- 
+
 
 
 using System;
@@ -11,11 +11,11 @@ public class Program
 {		
 	public void Main()
 	{
-		string uncompressed = "aabcccccaaa";
+		string uncompressed = "abcssssss";
 		string compressed = "a2b1c5a3";
 		
 		
-		Console.Write(compress(uncompressed).Equals(compressed));
+		Console.Write(compress(uncompressed));
 	}
 	
 	String compress(String s){
@@ -37,6 +37,6 @@ public class Program
 			}
 			
 		}
-		return compressedString.ToString();
+		return (s.Length < compressedString.ToString().Length) ? s : compressedString.ToString();
 	}
 }
